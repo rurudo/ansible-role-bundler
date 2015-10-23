@@ -1,0 +1,12 @@
+---
+
+- name: Install Bundler gem
+  gem: >
+    name=bundler
+    executable={{ bundler_rbenv }}/shims/gem
+    user_install=false
+
+- name: Set bundler path
+  commans: "{{ bundler_rbenv }}/bin/rbenv rehash"
+  args:
+    creates: "{{ bundler_rbenv }}/shims/bundle"
